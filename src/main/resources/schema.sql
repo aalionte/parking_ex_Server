@@ -4,23 +4,24 @@ create table if not exists gates(
 );
 
 create table if not exists parking_place(
-	id 	integer PRIMARY KEY,
+	id 		integer PRIMARY KEY,
 	row 	varchar(10) NOT NULL,
 	number 	integer not null
 );
 
 create table if not exists charging_station(
-	id 		integer CONSTRAINT firstkey PRIMARY KEY,
+	id		integer  PRIMARY KEY,
 	isFree 	boolean default true,
 	isConnected boolean default false,
-	power integer default 100,
-	CONSTRAINT parking_place UNIQUE(id)
+	power 	integer default 100,
+	parking_place_id     integer references parking_place(id)
 );
 
-statistics(
-	id 		integer CONSTRAINT firstkey PRIMARY KEY,
-	CONSTRAINT gate id,
-	CONSTRAINT parking_place id,
-	CONSTRAINT 
+create table if not exists statistics(
+	id 			integer PRIMARY KEY,
+	gate_id  	integer references gates(id),
+	parking_place_id integer references parking_place(id),
+	enter_time	 date,
+	exit_time	 date
 	
 )
