@@ -9,9 +9,15 @@ insert into gates  (name) VALUES
 	
 delete from parking_place;
 
-insert into parking_place(row, number ) VALUES
-	('A', 1),
-	('A', 2),
-	('A', 3);
+DO
+$do$
+BEGIN 
+FOR i IN 1..1000 LOOP
+INSERT into parking_place (row, number) values
+	('A', i);
+END LOOP;
+END
+$do$;
+
 	
 	
