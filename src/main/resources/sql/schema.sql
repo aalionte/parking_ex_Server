@@ -18,17 +18,17 @@ create table if not exists parking_place(
 	id 		SERIAL UNIQUE NOT NULL,
 	row 	varchar(10) NOT NULL,
 	number 	integer not null,
-	isFree	boolean default true,
+	is_free	boolean default true,
 	PRIMARY KEY(id)
 
 );
 
 create table if not exists charging_station(
-	id		SERIAL UNIQUE NOT NULL,
-	isConnected boolean default false,
-	power 	integer default 100,
-	parking_place_id     integer references parking_place(id),
-		PRIMARY KEY(id)
+	id					SERIAL UNIQUE NOT NULL,
+	is_connected			boolean default false,
+	power 				integer default 100,
+	parking_place_id    integer references parking_place(id),
+	PRIMARY KEY(id)
 
 );
 
@@ -38,7 +38,7 @@ create table if not exists parking_statistics(
 	parking_place_id integer references parking_place(id),
 	enter_time	 date,
 	exit_time	 date,
-		PRIMARY KEY(id)
+	PRIMARY KEY(id)
 
 	
 )
