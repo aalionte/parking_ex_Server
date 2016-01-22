@@ -1,11 +1,13 @@
 package com.conti.web.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.conti.web.parking.model.Gate;
 import com.conti.web.parking.repo.GateDao;
 import com.conti.web.service.GateService;
 
+@Service
 public class GateServiceImpl implements GateService{
 
 	@Autowired

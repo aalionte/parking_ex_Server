@@ -27,8 +27,12 @@ public class ParkingPlace implements Serializable {
 	@Column(name = "number", nullable = false)
 	private int number;
 
-	@Column(name = "isFree")
+	@Column(name = "is_free")
 	private boolean isFree;
+
+	protected ParkingPlace() {
+
+	}
 
 	public ParkingPlace(Long id, String row, int number) {
 		this.id = id;
