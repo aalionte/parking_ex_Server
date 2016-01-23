@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "parking_statistics")
@@ -31,11 +34,13 @@ public class ParkingStatistics implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonManagedReference
 	@JoinColumn(name = "gate_id", insertable = false, updatable = false, nullable = false)
 	private Gate gate;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonManagedReference
 	@JoinColumn(name = "parking_place_id", insertable = false, updatable = false, nullable = false)
 	private ParkingPlace parkingPlace;
 

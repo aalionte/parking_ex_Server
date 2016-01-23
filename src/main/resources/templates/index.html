@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1" />
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="css/tables.css" />
+
 </head>
 <body>
-	<p>Hello world</p>
+	<div>
+		<h1>Live results</h1>
+		<div>
+			<table summary="Summary Here" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Live</th>
+						<th>Statistics</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="light">
+						<td>Free spaces</td>
+						<td>Total number of spaces</td>
+					</tr>
+					<tr class="dark">
+						<td th:text="${freePlaces}"/>
+						<td th:text="${total}"/>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
