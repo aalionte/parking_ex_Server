@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "gate")
+@Table(name = "parking_place")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ParkingPlace implements Serializable {
 

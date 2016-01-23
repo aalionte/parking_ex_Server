@@ -19,7 +19,7 @@ import com.conti.web.parking.service.ChargingStationService;
 @RequestMapping(value = "/chargingStations")
 public class ChargingStationController {
 
-	/*@Autowired
+	@Autowired
 	ChargingStationService chargingStationService;
 
 	@RequestMapping(value = "/free-charging-station", method = RequestMethod.GET, produces = "application/json", headers = {
@@ -33,5 +33,5 @@ public class ChargingStationController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public @ResponseBody boolean isFreeStation(@PathVariable Long id) {
 		return chargingStationService.isFree(id);
-	}*/
+	}
 }
