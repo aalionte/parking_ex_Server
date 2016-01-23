@@ -1,4 +1,4 @@
-package com.conti.web.service;
+package com.conti.web.parking.service;
 
 import com.conti.web.parking.model.Gate;
 

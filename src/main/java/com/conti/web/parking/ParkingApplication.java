@@ -1,11 +1,16 @@
 package com.conti.web.parking;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
-//@PropertySource("classpath:application.properties")
+//@Configuration
+@EnableAutoConfiguration
+@ComponentScan(basePackages = "com.conti.web.parking")
+// @PropertySource("classpath:application.properties")
 public class ParkingApplication {
 
 	public static void main(String[] args) {

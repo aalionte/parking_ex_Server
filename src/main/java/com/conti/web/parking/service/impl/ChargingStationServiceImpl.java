@@ -1,4 +1,4 @@
-package com.conti.web.service.impl;
+package com.conti.web.parking.service.impl;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.conti.web.parking.model.ChargingStation;
 import com.conti.web.parking.repo.ChargingStationDao;
-import com.conti.web.service.ChargingStationService;
+import com.conti.web.parking.service.ChargingStationService;
 
-@Service
+@Service("chargingStation")
 public class ChargingStationServiceImpl implements ChargingStationService{
 
 	@Autowired 
