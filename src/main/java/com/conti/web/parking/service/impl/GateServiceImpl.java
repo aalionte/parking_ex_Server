@@ -1,5 +1,7 @@
 package com.conti.web.parking.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,11 @@ public class GateServiceImpl implements GateService{
 	public Gate getGateByName(String gateName) {
 		return gateDao.findByName(gateName);
 		
+	}
+
+	@Override
+	public List<Gate> getAllGates() {
+		return (List<Gate>) gateDao.findAll();
 	}
 
 }

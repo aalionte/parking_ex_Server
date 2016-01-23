@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "charging_station")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @SuppressWarnings("serial")
 public class ChargingStation implements Serializable {
 
@@ -33,7 +33,7 @@ public class ChargingStation implements Serializable {
 	@Column(name = "power")
 	private int power;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "parking_place_id")
 	@JsonManagedReference
 	private ParkingPlace parkingPlace;

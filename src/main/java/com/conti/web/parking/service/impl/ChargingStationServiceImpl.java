@@ -22,8 +22,7 @@ public class ChargingStationServiceImpl implements ChargingStationService{
 
 	@Override
 	public boolean isFree(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+		return chargingStationDao.findByIsFree(id);
 	}
 
 	@Override

@@ -16,4 +16,7 @@ public interface ChargingStationDao extends CrudRepository<ChargingStation, Long
 	
 	@Query("Select  cs from ChargingStation cs  join cs.parkingPlace pp on pp.isFree = true")
 	public List<ChargingStation> findAllFreeChargingStations();
+
+	@Query("select pp.isFree from ChargingStation cs join cs.parkingPlace pp on cs.id=?")
+	public boolean findByIsFree(Long id);
 }

@@ -31,7 +31,7 @@ public class ChargingStationController {
 
 	@RequestMapping(value = "/station-is-free/{id}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseStatus(value = HttpStatus.OK)
-	public @ResponseBody boolean isFreeStation(@PathVariable Long id) {
+	public @ResponseBody boolean isFreeStation(@PathVariable("id") Long id) {
 		return chargingStationService.isFree(id);
 	}
 }
