@@ -12,11 +12,17 @@ import com.conti.web.parking.model.ChargingStation;
 
 @Transactional
 @EnableTransactionManagement
-public interface ChargingStationDao extends CrudRepository<ChargingStation, Long>{
-	
+public interface ChargingStationDao extends CrudRepository<ChargingStation, Long> {
+
 	@Query("Select  cs from ChargingStation cs  join cs.parkingPlace pp on pp.isFree = true")
 	public List<ChargingStation> findAllFreeChargingStations();
 
 	@Query("select pp.isFree from ChargingStation cs join cs.parkingPlace pp on cs.id=?")
 	public boolean findByIsFree(Long id);
+
+	@Query("select cs.isConnected from ChargingStation cs where cs.id=?")
+	public boolean findByIsConnected(Long id);
+
+	@Query("select cs.power from ChargingStation cs where cs.id=?")
+	public int getChargingPower(Long id);
 }

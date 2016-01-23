@@ -27,14 +27,12 @@ public class ChargingStationServiceImpl implements ChargingStationService{
 
 	@Override
 	public boolean isConnectedTo(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+		return chargingStationDao.findByIsConnected(id);
 	}
 
 	@Override
 	public int getChargingPower(Long id) {
-		// TODO Auto-generated method stub
-		return 0;
+		return	chargingStationDao.getChargingPower(id);
 	}
 
 }

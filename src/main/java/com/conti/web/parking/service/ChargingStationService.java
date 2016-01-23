@@ -18,4 +18,5 @@ public interface ChargingStationService {
 	public boolean isConnectedTo(Long id);
 
 	public int getChargingPower(Long id);
+
 }

@@ -32,4 +32,6 @@ public class GateController {
 	public Gate gateIsActivated(@PathVariable("gateName") String gateName) {
 		return gateService.getGateByName(gateName);
 	}
+	
+	
 }

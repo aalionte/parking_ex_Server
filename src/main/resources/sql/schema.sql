@@ -37,8 +37,8 @@ create table if not exists parking_statistics(
 	id 					SERIAL UNIQUE NOT NULL,
 	gate_id  			integer references gates(id),
 	parking_place_id 	integer references parking_place(id),
-	enter_time	 		date,
-	exit_time	 		date,
+	enter_time	 		timestamp,
+	exit_time	 		timestamp,
 	PRIMARY KEY(id)
 
 	

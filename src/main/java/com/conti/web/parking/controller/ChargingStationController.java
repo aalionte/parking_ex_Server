@@ -34,4 +34,16 @@ public class ChargingStationController {
 	public @ResponseBody boolean isFreeStation(@PathVariable("id") Long id) {
 		return chargingStationService.isFree(id);
 	}
+	
+	@RequestMapping(value = "/station-is-connected/{id}", method = RequestMethod.GET, produces = "application/json")
+	@ResponseStatus(value = HttpStatus.OK)
+	public @ResponseBody boolean isConnectedStation(@PathVariable("id") Long id) {
+		return chargingStationService.isConnectedTo(id);
+	}
+	
+	@RequestMapping(value = "/remainingPower/{id}", method = RequestMethod.GET, produces = "application/json")
+	@ResponseStatus(value = HttpStatus.OK)
+	public @ResponseBody int getRemainingPower(@PathVariable("id") Long id) {
+		return chargingStationService.getChargingPower(id);
+	}
 }
