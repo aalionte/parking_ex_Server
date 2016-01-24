@@ -29,7 +29,7 @@ public class GateController {
 
 	@RequestMapping(value = "/gate/{gateName}", method = RequestMethod.GET, produces = "application/json")
 	@ResponseBody
-	public Gate gateIsActivated(@PathVariable("gateName") String gateName) {
+	public Gate getDetailsAboutGate(@PathVariable("gateName") String gateName) {
 		return gateService.getGateByName(gateName);
 	}
 	
