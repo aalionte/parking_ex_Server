@@ -3,8 +3,8 @@
 <head>
 <meta charset="ISO-8859-1" />
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="css/tables.css" />
+<link rel="stylesheet" type="text/css" href="css/tables.css" />
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
@@ -24,12 +24,22 @@
 						<td>Total number of spaces</td>
 					</tr>
 					<tr class="dark">
-						<td th:text="${freePlaces}"/>
-						<td th:text="${total}"/>
+						<td id="freePlaces" th:text="${freePlaces}" />
+						<td th:text="${total}" />
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function() {
+			var freePlaceURL = window.location.origin + "/parking-app/parking/getFreePlaces";
+				setInterval(function() {
+				$.get(freePlaceURL, function(data) {
+					$('#freePlaces').text(data);
+				});
+		}, 1000); // 1000 milliseconds = 1 second.
+		});
+	</script>
 </body>
 </html>
