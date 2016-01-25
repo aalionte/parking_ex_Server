@@ -64,16 +64,32 @@ public class GateControllerTest {
 	@Test
 	public void shouldReturnDetailsAboutGate() throws Exception {
 		// given
-		final String gateName=  "Gate1";
-		Gate gate = (new Gate((long) 1, gateName));
+		final String gateName = "Gate1";
+		Gate gate = new Gate((long) 1, gateName);
 
-		//then
+		// then
 		Mockito.when(gateController.getDetailsAboutGate(gateName)).thenReturn(gate);
-		
-		//when
-		mockMvc.perform(get("/gates/gate/{gateName}", gateName)).andExpect(MockMvcResultMatchers.status().is2xxSuccessful());
+
+		// when
+		mockMvc.perform(get("/gates/gate/{gateName}", gateName))
+				.andExpect(MockMvcResultMatchers.status().is2xxSuccessful());
 
 	}
-	
+
+	@Test
+	public void shouldThrowError() throws Exception {
+		// given
+
+		final String gateName = "Gate6";
+		Gate gate = new Gate((long) 6, gateName);
+
+		// then
+		Mockito.when(gateController.getDetailsAboutGate(gateName)).thenReturn(gate);
+
+		// when
+		mockMvc.perform(get("/gates/gate/{gateName}", gateName))
+				.andExpect(MockMvcResultMatchers.status().is2xxSuccessful());
+
+	}
 
 }

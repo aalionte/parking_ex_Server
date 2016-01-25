@@ -15,6 +15,6 @@ public class ParkingPlacesController {
 
 	@RequestMapping(value = "/parking/getFreePlaces", method = RequestMethod.GET)
 	public long parkingPlaceAction() {
-		return service.getTotal();
+		return service.countFreeParkingPlaces();
 	}
 }
