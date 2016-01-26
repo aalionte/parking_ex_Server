@@ -1,5 +1,7 @@
 package com.conti.web.parking.service.impl;
 
+import javax.transaction.Transactional;
+
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,7 @@ public class ParkingStatisticsServiceImpl implements ParkingStatisticsService {
 	ParkingPlaceDao parkingPlaceDao;
 
 	@Override
+	@Transactional
 	public void parkingPlaceAction(Long gateId, Long parkingPlaceId, String direction) {
 		final Direction directionE = Direction.valueOf(direction);
 		final DateTime now = new DateTime();

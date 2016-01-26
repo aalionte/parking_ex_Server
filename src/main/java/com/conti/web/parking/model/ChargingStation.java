@@ -80,4 +80,19 @@ public class ChargingStation implements Serializable {
 		this.parkingPlace = parking_place;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (id == null || obj == null || getClass() != obj.getClass())
+			return false;
+		ChargingStation that = (ChargingStation) obj;
+		return id.equals(that.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return id == null ? 0 : id.hashCode();
+	}
+
 }

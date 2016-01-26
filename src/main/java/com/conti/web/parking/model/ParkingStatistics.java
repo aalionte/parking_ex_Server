@@ -2,6 +2,7 @@ package com.conti.web.parking.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
@@ -21,27 +23,22 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Table(name = "parking_statistics")
 @SuppressWarnings("serial")
 public class ParkingStatistics implements Serializable {
-	/*
-	 * id SERIAL UNIQUE NOT NULL, gate_id integer references gates(id),
-	 * parking_place_id integer references parking_place(id), enter_time date,
-	 * exit_time date
-	 */
+
 	public ParkingStatistics() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JsonManagedReference
-	@JoinColumn(name = "gate_id", insertable = false, updatable = false, nullable = false)
+	@JoinColumn(name = "gate_id")//, insertable = false)//, updatable = false, nullable = false)
 	private Gate gate;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JsonManagedReference
-	@JoinColumn(name = "parking_place_id", insertable = false, updatable = false, nullable = false)
+	@JoinColumn(name = "parking_place_id")//, insertable = false)//, updatable = false, nullable = false)
 	private ParkingPlace parkingPlace;
 
 	@Column(name = "enter_time")
@@ -98,7 +95,7 @@ public class ParkingStatistics implements Serializable {
 			return true;
 		if (id == null || obj == null || getClass() != obj.getClass())
 			return false;
-		ParkingPlace that = (ParkingPlace) obj;
+		ParkingStatistics that = (ParkingStatistics) obj;
 		return id.equals(that.getId());
 	}
 
@@ -106,5 +103,4 @@ public class ParkingStatistics implements Serializable {
 	public int hashCode() {
 		return id == null ? 0 : id.hashCode();
 	}
-
 }

@@ -71,5 +71,19 @@ public class ParkingPlace implements Serializable {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (id == null || obj == null || getClass() != obj.getClass())
+			return false;
+		ParkingPlace that = (ParkingPlace) obj;
+		return id.equals(that.getId());
+	}
 
+	@Override
+	public int hashCode() {
+		return id == null ? 0 : id.hashCode();
+	}
 }
